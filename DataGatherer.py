@@ -10,7 +10,7 @@ import os
 import json
 import re
 
-class FileName(object):
+class DataGatherer(object):
 
     def __init__(self):
         # Configure Logging
@@ -22,9 +22,9 @@ class FileName(object):
         # self.logger.setLevel(logging.WARNING)
 
         self.forms_base_url = "https://forms.iebc.or.ke/"
-        self.storage_base_url = "https://forms.iebc.or.ke/storage/images/1_1_047_277_1381_004_01.jpeg"
+        #self.storage_base_url = "https://forms.iebc.or.ke/storage/images/1_1_047_277_1381_004_01.jpeg"
 
-        self.main_county_list = []
+        #self.main_county_list = []
 
     def get_all_children_per_parent(self, child_item, parent):
         #example_url = "https://forms.iebc.or.ke/160/wards?data=160"
