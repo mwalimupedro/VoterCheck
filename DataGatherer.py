@@ -29,8 +29,8 @@ class DataGatherer(object):
     def get_all_children_per_parent(self, child_item, parent):
         #example_url = "https://forms.iebc.or.ke/160/wards?data=160"
         child_item_without_underscore = child_item.replace('_', '')
-        wards_param = child_item_without_underscore+'?data='
-        # Get list of constituencies from directory of Constituencies per County
+        child_param = child_item_without_underscore+'?data='
+        # Get list of Children (e.g. constituencies) from directory of Parents with Children (E.g. Constituencies per County)
         all_parent_id_list = self.get_all_parent_ids(parent)
 
         extension = '.json'
@@ -40,8 +40,8 @@ class DataGatherer(object):
                 key_param = parent_id[0]+ '-' + parent_id[2]
             else:
                 key_param = parent_id[0]
-            full_wards_url =  self.forms_base_url + '/'+ key_param + '/'+ wards_param + key_param
-            self.logger.debug('WARDS from CONSTITUENCY url: {}'.format(full_wards_url))
+            full_wards_url =  self.forms_base_url + '/'+ key_param + '/'+ child_param + key_param
+            self.logger.debug('{} from {} url: {}'.format(child_param.upper(), parent, full_wards_url))
             resp = requests.get(full_wards_url)
 
             chars = set("\\/")
